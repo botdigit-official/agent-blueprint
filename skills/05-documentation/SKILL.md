@@ -26,9 +26,40 @@ Do not create every document. Create the minimum set that allows a person (or ag
 | 1 — Minimal | Script, small tool, simple service | README.md |
 | 2 — Standard | Small web app, API, internal tool | README + PROJECT + ARCHITECTURE + DATABASE + API + SECURITY |
 | 3 — Full | SaaS, marketplace, commercial product | Tier 2 + BUSINESS + BUSINESS-MODEL + ACTORS + TESTING + DEPLOYMENT + OPERATIONS |
-| 4 — Regulated | System with compliance, audit, or data governance requirements | Tier 3 + COMPLIANCE + AUDIT + DATA-GOVERNANCE + DISASTER-RECOVERY |
+| 4 — Enterprise Controlled | High-scale platforms, SaaS, mission-critical systems | **The 19 Controlled Documents (00_MASTER_INDEX to 18_FEATURE_CHECKLIST)** |
 
-The orchestrator selects the tier. Within a tier, use judgment — a simple SaaS may not need all of Tier 3 immediately.
+### Cardinal Operating Principles:
+1. **Evidence Over Documentation**: Code and runtime evidence are stronger than documentation claims. If documentation claims a feature is complete but implementation or tests do not prove it, mark it as `INCOMPLETE` or `PENDING`.
+2. **Strict Verification Lifecycle**: Every feature, fix, or plan item must transition through:
+   `DISCOVERED` $\to$ `PLANNED` $\to$ `IN_PROGRESS` $\to$ `RUNTIME_EVIDENCE` $\to$ `VERIFIED_DONE`.
+3. **Continuous Synchronization**: Documentation must never drift from actual code.
+
+---
+
+### The 19 Controlled Documents Suite (00–18)
+
+When operating under Tier 4 Enterprise Controlled standard, maintain these exact synchronized files:
+
+- `README.md` — System identity, badges, quickstart, and environment setup
+- `00_MASTER_INDEX.md` — Master documentation registry and navigation hub
+- `01_PROJECT_BASELINE.md` — Vision, scope boundaries, problem statement, and goals
+- `02_ARCHITECTURE.md` — System topology, modular monolith structure, data flows
+- `03_PORTALS.md` — Portal workflows (Public Directory, Website Studio, Owner Dashboard, Admin Launcher)
+- `04_NAVIGATION_MASTER.md` — Site tree, Next.js routing, and navigation architecture
+- `05_LEGACY_FEATURE_MAPPING.md` — Legacy code audit, technical debt, and decommission schedule
+- `06_MODULE_CATALOG.md` — Engine modules, service layers, and crate boundaries
+- `07_DATA_MODEL_MASTER.md` — PostgreSQL schemas, PostGIS models, ERD, and migrations (001–018)
+- `08_FINANCIAL_CORE.md` — Plans catalog, Razorpay billing, recurring subscriptions, invoices
+- `09_SECURITY_RBAC_WORKFLOW.md` — Argon2id, CSRF protection, sliding rate limiter, SSRF SafeFetcher
+- `10_API_AND_INTEGRATIONS.md` — REST API reference, webhooks, and third-party adapters (OSM, Google Places)
+- `11_JOBS_AND_AUTOMATION.md` — Background daemons (Scanner Cron, Notification Worker)
+- `12_TESTING_AND_VERIFICATION.md` — Automated test suite matrix and verification commands
+- `13_IMPLEMENTATION_ROADMAP.md` — Phase progression from Phase 0 to Phase 5
+- `14_PROGRESS_TRACKER.md` — Real-time progress tracker with checkbox status
+- `15_GAP_AND_RISK_REGISTER.md` — Known limitations, risk mitigations, and technical debt
+- `16_DEFINITION_OF_DONE.md` — Non-negotiable quality and release criteria
+- `17_CHANGELOG.md` — Release history and session audit trail
+- `18_FEATURE_CHECKLIST.md` — Comprehensive feature matrix with code-level proof of implementation
 
 ---
 
