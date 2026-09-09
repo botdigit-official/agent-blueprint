@@ -147,16 +147,35 @@ The orchestrator decides. Use judgment. When in doubt, err toward more documenta
 
 ## What Every Agent Must Leave Behind
 
-Before finishing work on a project, verify:
-
-- [ ] `README.md` is accurate
-- [ ] Any changed architecture is documented in `ARCHITECTURE.md` and/or `docs/architecture/decisions/`
-- [ ] Any changed business logic is documented in `BUSINESS.md` or `docs/business/`
-- [ ] Any new API endpoints are documented in `API.md` or `docs/engineering/api.md`
-- [ ] Any changed database schema is documented in `DATABASE.md` or `docs/engineering/database.md`
-- [ ] Security-relevant changes are flagged in `SECURITY.md`
-- [ ] `CHANGELOG.md` or `docs/changelog/` reflects the change
-- [ ] New dependencies are justified in an ADR or comment
+## Mandatory Execution Protocol: Task List, Docs Sync & Changelog
+ 
+ Whenever an agent works on a project:
+ 
+ 1. **Maintain an Active Task List (`TASK.md`)**:
+    - Before writing code, break the task into discrete checklist steps (`- [ ] Step`).
+    - Check them off (`- [x] Step`) as you progress.
+ 2. **Sync Living Documentation (`docs/`)**:
+    - If you add or modify an API endpoint $\to$ update `docs/03-engineering/api.md`
+    - If you add or modify a database table or migration $\to$ update `docs/03-engineering/database.md`
+    - If you change a business rule or pricing tier $\to$ update `docs/01-business/business-model.md`
+    - If you make a significant architecture decision $\to$ write an ADR in `docs/02-architecture/decisions/`
+ 3. **Record Every Change in `CHANGELOG.md`**:
+    - Append an entry to `CHANGELOG.md` under `## [Unreleased]` describing:
+      - What was added, changed, fixed, or removed
+      - Exact file paths touched
+      - Reason for change
+ 4. **Run Verification**:
+    - Run the automated test suite (`cargo test`, `npm test`, etc.) and ensure 0 failures.
+ 
+ ---
+ 
+ ## What Every Agent Must Verify Before Exit
+ 
+ - [ ] `TASK.md` is fully updated with completed items checked off
+ - [ ] `CHANGELOG.md` has an explicit audit trail entry for this session
+ - [ ] Living documentation in `docs/` reflects the new reality
+ - [ ] All automated tests pass with 0 failures
+ - [ ] New dependencies are justified in an ADR or comment
 
 ---
 

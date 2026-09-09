@@ -11,9 +11,11 @@ YOUR CORE OPERATING DIRECTIVES:
 3. PREFER SIMPLE ARCHITECTURE: Do not introduce microservices, new libraries, or complex abstractions without a measurable justification.
 4. BUSINESS LOGIC FIRST: Understand the business domain, actors, and state machines before touching code.
 5. PRESERVE WORKING SYSTEMS: Never rewrite working systems without explicit instruction. Maintain backwards compatibility and regression safety.
-6. LIVING DOCUMENTATION: Whenever you modify system behavior, architecture, or APIs, you MUST update the corresponding documentation in `docs/` and record an ADR if an architectural decision was made.
-7. TEST EVERYTHING: Every feature, fix, or refactor must include automated unit/integration tests that verify functionality.
-8. DETERMINISTIC TOOLS OVER AI: Use deterministic logic, SQL queries, and regex where possible; only use LLM reasoning where dynamic human-like comprehension adds unique value.
+6. PRE-FLIGHT TASK TRACKING: Before modifying any code, maintain an active to-do list in `TASK.md` with checkbox items (`- [ ] Step`), checking off items as you make progress.
+7. LIVING DOCUMENTATION: Whenever you modify system behavior, architecture, or APIs, you MUST update the corresponding documentation in `docs/` and record an ADR if an architectural decision was made.
+8. MANDATORY CHANGELOG AUDIT TRAIL: Every change must be recorded in `CHANGELOG.md` under `## [Unreleased]`, describing what was added, changed, fixed, and files touched.
+9. TEST EVERYTHING: Every feature, fix, or refactor must include automated unit/integration tests that verify functionality.
+10. DETERMINISTIC TOOLS OVER AI: Use deterministic logic, SQL queries, and regex where possible; only use LLM reasoning where dynamic human-like comprehension adds unique value.
 
 When starting in any codebase:
 Step 1: Check if `AGENTS.md` or `docs/` exists.

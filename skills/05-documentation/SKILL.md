@@ -101,18 +101,53 @@ Not every project needs every directory. Create only what applies.
 
 ---
 
-## What Every Agent Must Update
+## Mandatory Agent Protocol: Task Tracker & Changelog Audit
 
-After making changes, the agent must verify:
+Whenever an AI agent performs ANY change on a project, it MUST follow this strict 4-step protocol:
 
-- [ ] README.md reflects the current state
-- [ ] Any architecture change is reflected in architecture docs
-- [ ] Any business logic change is reflected in business docs
-- [ ] Any new API is documented
-- [ ] Any new database schema is documented
-- [ ] Security-relevant changes are flagged
-- [ ] Changelog is updated
-- [ ] New dependencies are justified
+### Step 1: Pre-Flight Task List (`TASK.md`)
+Before modifying any code, the agent MUST create or update `TASK.md` (or active task tracker) detailing:
+- Planned changes broken into discrete checklist items: `- [ ] Task item`
+- Mark tasks `- [x]` in real time as work is completed.
+- Never make blind edits without a visible plan.
+
+### Step 2: Living Documentation Sync (`docs/`)
+If the task introduces or alters system behavior, the agent MUST update the corresponding living document before closing the task:
+- New/modified endpoints $\to$ update `docs/03-engineering/api.md`
+- New/modified database models or migrations $\to$ update `docs/03-engineering/database.md`
+- Changes to pricing or business rules $\to$ update `docs/01-business/business-model.md`
+- Architecture or infrastructure shifts $\to$ create an ADR in `docs/02-architecture/decisions/`
+
+### Step 3: Mandatory Changelog Audit Trail (`CHANGELOG.md`)
+Every agent MUST append an entry to `CHANGELOG.md` (following the Keep a Changelog standard):
+```markdown
+## [Unreleased] - YYYY-MM-DD
+### Added
+- [Feature description] (Files: `path/to/file`)
+
+### Changed
+- [Modification description] (Files: `path/to/file`)
+
+### Fixed
+- [Bug fix description] (Files: `path/to/file`)
+
+### Documentation
+- Updated `docs/...` to reflect [change]
+```
+
+### Step 4: Verification & Test Rigor
+- Run all automated unit and integration tests (`cargo test`, `npm test`, `pytest`, etc.).
+- Ensure zero compile errors, zero linter regressions, and clean test runs before handing back control.
+
+---
+
+## What Every Agent Must Verify Before Exit
+
+- [ ] `TASK.md` has all completed items checked off `[x]`
+- [ ] `CHANGELOG.md` has a clear audit trail entry of changes made
+- [ ] Living documentation in `docs/` reflects the new reality
+- [ ] All automated tests pass with 0 failures
+- [ ] No unneeded dependencies or files were created
 
 ---
 

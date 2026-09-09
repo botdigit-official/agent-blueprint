@@ -74,10 +74,12 @@ This project adheres to **Agent Blueprint** (https://github.com/botdigit-officia
 ## Core Rule
 > The agent must adapt to the project. The project must not be forced to adapt to the skill.
 
-## Required Lifecycle
-1. Inspect before modifying: Check \`docs/\` and existing codebase structure.
-2. Respect existing architecture, dependencies, and business state machines.
-3. Every significant change must include automated tests and update \`docs/\`.
+## Mandatory Execution Protocol
+1. **Pre-flight Planning**: Maintain an active checklist in \`TASK.md\` before making edits.
+2. **Inspect Before Changing**: Review existing code and living docs in \`docs/\`.
+3. **Docs Sync**: If you alter APIs, schemas, or business rules, update \`docs/\` immediately.
+4. **Audit Trail**: Every change must be recorded in \`CHANGELOG.md\` under \`## [Unreleased]\`.
+5. **Zero Regressions**: Run automated tests before completing any task.
 
 Refer to \`AGENTS.md\` and \`.agents/skills/\` for complete architectural guides.
 `;
@@ -92,18 +94,52 @@ Refer to \`AGENTS.md\` and \`.agents/skills/\` for complete architectural guides
 
 You are working in a repository managed under Agent Blueprint standards.
 
-RULES:
-1. Always inspect existing code, dependencies, and tests before writing or editing code.
-2. Never invent or introduce unapproved external libraries without measurable justification.
-3. Keep living documentation in 'docs/' in sync with your code changes.
-4. Run existing test suites after every modification.
-5. Refer to AGENTS.md and .agents/skills/ for the canonical skill workflow.
+MANDATORY PROTOCOL:
+1. PRE-FLIGHT: Maintain a to-do checklist in 'TASK.md' before modifying code.
+2. INSPECT: Read existing files, dependencies, and docs/ before writing new code.
+3. PRESERVE: Never rewrite working systems or add unapproved libraries without measurable reason.
+4. DOCS SYNC: Keep living documentation in 'docs/' in sync with every code change.
+5. CHANGELOG: Record all changes in 'CHANGELOG.md' under '## [Unreleased]' with files touched.
+6. TEST: Run automated tests after every modification.
 `;
     fs.writeFileSync(cursorRulesDest, cursorContent, 'utf8');
     console.log('✅ Generated .cursorrules (for Cursor AI)');
   }
 
-  // 5. Scaffold docs/ structure according to Tier
+  // 5. Generate TASK.md if not existing
+  const taskMdDest = path.join(fullTarget, 'TASK.md');
+  if (!fs.existsSync(taskMdDest)) {
+    const taskContent = `# Project Task Tracker
+
+## Active Tasks
+- [x] Initialized project with Agent Blueprint
+- [ ] Next planned task (specify details)
+
+## Backlog
+- [ ] Future improvements
+`;
+    fs.writeFileSync(taskMdDest, taskContent, 'utf8');
+    console.log('✅ Initialized TASK.md task tracker');
+  }
+
+  // 6. Generate CHANGELOG.md if not existing
+  const changelogDest = path.join(fullTarget, 'CHANGELOG.md');
+  if (!fs.existsSync(changelogDest)) {
+    const changelogContent = `# Changelog
+
+All notable changes to this project are documented in this file.
+Format is based on [Keep a Changelog](https://keepachangelog.com/).
+
+## [Unreleased]
+
+### Added
+- Integrated Agent Blueprint architectural and skill framework.
+`;
+    fs.writeFileSync(changelogDest, changelogContent, 'utf8');
+    console.log('✅ Initialized CHANGELOG.md audit trail');
+  }
+
+  // 7. Scaffold docs/ structure according to Tier
   const docsDir = path.join(fullTarget, 'docs');
   fs.mkdirSync(path.join(docsDir, '00-project'), { recursive: true });
   fs.mkdirSync(path.join(docsDir, '01-business'), { recursive: true });
