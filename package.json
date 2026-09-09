@@ -1,0 +1,37 @@
+{
+  "name": "agent-blueprint",
+  "version": "1.0.0",
+  "description": "The universal blueprint and skill standard for AI coding agents — teaching agents how to think, audit, architect, and properly document any software project.",
+  "main": "bin/cli.js",
+  "bin": {
+    "agent-blueprint": "./bin/cli.js",
+    "blueprint": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "node bin/cli.js status"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/botdigit-official/agent-blueprint.git"
+  },
+  "keywords": [
+    "ai-agents",
+    "coding-agents",
+    "agentic-workflows",
+    "cursor",
+    "claude-code",
+    "antigravity",
+    "windsurf",
+    "developer-tools",
+    "prompt-engineering",
+    "software-architecture",
+    "code-audit",
+    "documentation"
+  ],
+  "author": "BotDigit (https://botdigit.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/botdigit-official/agent-blueprint/issues"
+  },
+  "homepage": "https://github.com/botdigit-official/agent-blueprint#readme"
+}

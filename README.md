@@ -4,6 +4,7 @@
 
 **The universal blueprint and skill standard for AI coding agents — teaching agents how to think, audit, architect, and properly document any software project.**
 
+[![CI](https://github.com/botdigit-official/agent-blueprint/actions/workflows/ci.yml/badge.svg)](https://github.com/botdigit-official/agent-blueprint/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Agents](https://img.shields.io/badge/Agents-Antigravity%20%7C%20Claude%20Code%20%7C%20Cursor%20%7C%20Windsurf%20%7C%20Cline-orange)](#)
@@ -19,19 +20,31 @@
 
 ## ⚡ 1-Minute Quickstart
 
-Link **Agent Blueprint** into any existing or new project with a single command:
+Install **Agent Blueprint** into any project with your preferred method:
 
+### Option A: One-Liner (Recommended)
 ```bash
-# Clone the blueprint
-git clone https://github.com/botdigit-official/agent-blueprint.git
-cd agent-blueprint
-
-# Link skills into your target repository (creates .agents/skills and AGENTS.md)
-./install.sh /path/to/your/project
+curl -fsSL https://raw.githubusercontent.com/botdigit-official/agent-blueprint/main/install.sh | bash
 ```
 
-Then prompt your AI agent (Antigravity, Claude Code, Cursor, Windsurf, Cline, Aider):
-> *"Read `AGENTS.md` and start project discovery & audit."*
+### Option B: Via npx / Node
+```bash
+npx agent-blueprint init
+```
+
+### Option C: Git Clone
+```bash
+git clone --depth 1 https://github.com/botdigit-official/agent-blueprint.git ~/.agent-blueprint
+~/.agent-blueprint/install.sh .
+```
+
+### 🤖 Multi-Agent Compatibility Out of the Box
+| AI Tool | Configuration File Generated | Workflow Activated |
+|---|---|---|
+| **Google Antigravity** | `AGENTS.md` + `.agents/skills/` | Full modular skill hierarchy |
+| **Claude Code** | `CLAUDE.md` | Context & architecture guardrails |
+| **Cursor AI** | `.cursorrules` | Architectural & testing rules |
+| **Windsurf / Cline / Aider** | `AGENTS.md` | Autonomous discovery & audit |
 
 ---
 
