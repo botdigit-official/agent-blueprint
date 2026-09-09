@@ -1,0 +1,38 @@
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build / dependencies (for any code that might be added later)
+node_modules/
+vendor/
+target/
+dist/
+build/
+__.pycache__/
+*.pyc
+*.pyo
+*.class
+
+# Environment / secrets
+.env
+.env.local
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs
+*.log
+logs/
+
+# Temporary
+tmp/
+temp/
+.cache/
