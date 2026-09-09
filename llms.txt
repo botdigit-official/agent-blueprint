@@ -1,0 +1,26 @@
+# Agent Blueprint
+
+> The universal blueprint and skill standard for AI coding agents — teaching LLMs how to think, audit, architect, and properly document any software project.
+
+## Core Rules for LLMs
+- The agent must adapt to the project. The project must not be forced to adapt to the skill.
+- Inspect before assuming. Understand existing architecture, dependencies, and state machines before editing.
+- Business logic comes before code structure. Security and data integrity come before features.
+- Deterministic tools before AI. Use AI only where reasoning adds unique value.
+- Never rewrite working systems unnecessarily. Preserve existing functionality unless explicitly deprecated.
+- Every architectural decision needs an Architectural Decision Record (ADR).
+- Every major change needs automated tests and must update living documentation in docs/.
+
+## Key Documents
+- [AGENTS.md](AGENTS.md): Entry point and complete execution lifecycle for AI coding agents.
+- [Orchestrator](skills/00-orchestrator/SKILL.md): Project classification, technology detection, and skill activation.
+- [Discovery](skills/01-discovery/SKILL.md): Locating projects in monorepos or nested directories.
+- [Project Context](skills/02-project-context/SKILL.md): Inspecting frameworks, languages, databases, and dependencies.
+- [Business Architecture](skills/03-business-architecture/SKILL.md): Domain modeling, actor definitions, workflows, and state machines.
+- [Architecture](skills/04-architecture/SKILL.md): System boundaries, modular monoliths, and ADR templates.
+- [Documentation Standard](skills/05-documentation/SKILL.md): Living documentation framework (docs/ hierarchy).
+- [Codebase Audit](skills/06-codebase-audit/SKILL.md): Static code hygiene, patterns, and debt discovery.
+- [Security](skills/07-security/SKILL.md): Defense-in-depth, cryptographic hashing, CSRF, and rate limiting.
+- [Testing](skills/08-testing/SKILL.md): Test strategy, regression suites, and verification matrix.
+- [Performance](skills/09-performance/SKILL.md): Query optimization, caching, latency profiling.
+- [Full Audit](skills/10-audit/SKILL.md): Combined forensic audit workflow.

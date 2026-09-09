@@ -64,6 +64,20 @@ Most AI coding agents jump straight to generating code or rewriting working syst
 8. **Test & Verify** to preserve regression safety and data integrity
 9. **Review & Audit** against security and performance baselines
 
+> 🤖 **Direct LLM Ingestion**: Feed [**`llms.txt`**](llms.txt) to web crawlers/agents or copy the 1-click system prompt in [**`PROMPT.md`**](PROMPT.md).
+
+---
+
+## ⚖️ Why You Need This: Raw AI vs. Agent Blueprint
+
+| Scenario | Raw AI / Default Copilot | With Agent Blueprint |
+|---|---|---|
+| **Entering a project** | Guesses architecture, invents new dependencies | Runs discovery, detects existing stack, checks `docs/` |
+| **Refactoring code** | Often rewrites working systems and breaks logic | Obeys established ADRs, respects existing state machines |
+| **Documentation** | Leaves zero comments and zero docs | Automatically updates `docs/` living documentation |
+| **New Features** | Injects unverified patterns | Writes automated tests, updates API specs |
+| **Multi-Agent Teams** | Claude Code, Cursor, and Antigravity fight | All agents share a single source of truth |
+
 ---
 
 ## Core Philosophy
@@ -212,6 +226,23 @@ We welcome contributions! You can add new technology stacks, framework adapters,
 
 ---
 
+## Frequently Asked Questions (FAQ)
+
+### How does Agent Blueprint prevent AI from breaking existing code?
+Agent Blueprint enforces a strict rule: **"The agent must adapt to the project; the project must not adapt to the skill."** Before an agent is allowed to write or edit code, it must execute Discovery, inspect existing frameworks, review active state machines, and check existing unit tests.
+
+### Does this work with Cursor, Claude Code, and Antigravity?
+**Yes.** When you run `./install.sh` or `npx agent-blueprint init`, it automatically creates `.cursorrules` (for Cursor), `CLAUDE.md` (for Claude Code), and `AGENTS.md` + `.agents/skills/` (for Antigravity, Cline, Windsurf). All agents follow the exact same architectural guidelines.
+
+### What is "Living Documentation"?
+Instead of outdated wikis or empty READMEs, Agent Blueprint establishes a structured `docs/` hierarchy (Business Model, Architecture Decision Records, Database Schemas, API Specs, Security). Every time an agent modifies system behavior, it is required to update the corresponding document.
+
+### How is this different from a system prompt?
+A single giant prompt gets truncated and forgotten in long context windows. Agent Blueprint is a **modular, composable skill hierarchy**. The autonomous orchestrator activates only the skills required for the specific task at hand.
+
+---
+
 ## License
 
 MIT © [BotDigit](https://botdigit.com) — see [LICENSE](LICENSE).
+
