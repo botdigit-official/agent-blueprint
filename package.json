@@ -7,6 +7,19 @@
     "agent-blueprint": "./bin/cli.js",
     "blueprint": "./bin/cli.js"
   },
+  "files": [
+    "bin",
+    "skills",
+    "stacks",
+    "frameworks",
+    "templates",
+    "AGENTS.md",
+    "README.md",
+    "LICENSE",
+    "install.sh",
+    "llms.txt",
+    "PROMPT.md"
+  ],
   "scripts": {
     "test": "node bin/cli.js status"
   },
