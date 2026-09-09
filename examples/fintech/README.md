@@ -1,6 +1,6 @@
 # Fintech Example
 
-This directory shows how Project Skills OS applies to a fintech project.
+This directory shows how Agent Blueprint applies to a fintech project.
 
 ## Archetype
 

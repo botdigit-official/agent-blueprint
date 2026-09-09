@@ -34,7 +34,7 @@ The orchestrator selects the tier. Within a tier, use judgment — a simple SaaS
 
 ## Documentation Standard
 
-Every project using Project Skills OS should follow this documentation structure:
+Every project using Agent Blueprint should follow this documentation structure:
 
 ```
 docs/

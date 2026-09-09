@@ -1,6 +1,6 @@
 # AGENTS.md — Entry Point for Coding Agents
 
-You are entering a project that uses **Project Skills OS**.
+You are entering a project that uses **Agent Blueprint**.
 
 Before implementing any significant change:
 

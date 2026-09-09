@@ -1,6 +1,6 @@
 # AI Product Example
 
-This directory shows how Project Skills OS applies to an AI-powered product.
+This directory shows how Agent Blueprint applies to an AI-powered product.
 
 ## Archetype
 

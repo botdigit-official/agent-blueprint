@@ -1,4 +1,4 @@
-# Contributing to Project Skills OS
+# Contributing to Agent Blueprint
 
 Thank you for contributing. This repository is open source under the MIT license.
 

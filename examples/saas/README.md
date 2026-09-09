@@ -1,6 +1,6 @@
 # SaaS Example
 
-This directory shows how Project Skills OS applies to a typical SaaS project.
+This directory shows how Agent Blueprint applies to a typical SaaS project.
 
 ## Archetype
 

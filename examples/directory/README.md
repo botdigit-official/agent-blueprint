@@ -1,6 +1,6 @@
 # Directory Example
 
-This directory shows how Project Skills OS applies to a directory or listing platform.
+This directory shows how Agent Blueprint applies to a directory or listing platform.
 
 ## Archetype
 

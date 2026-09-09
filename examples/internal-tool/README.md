@@ -1,6 +1,6 @@
 # Internal Tool Example
 
-This directory shows how Project Skills OS applies to an internal tool.
+This directory shows how Agent Blueprint applies to an internal tool.
 
 ## Archetype
 

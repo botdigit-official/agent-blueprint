@@ -1,6 +1,6 @@
 # E-Commerce Example
 
-This directory shows how Project Skills OS applies to an e-commerce project.
+This directory shows how Agent Blueprint applies to an e-commerce project.
 
 ## Archetype
 

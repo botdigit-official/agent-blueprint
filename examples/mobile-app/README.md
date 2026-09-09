@@ -1,6 +1,6 @@
 # Mobile App Example
 
-This directory shows how Project Skills OS applies to a mobile application.
+This directory shows how Agent Blueprint applies to a mobile application.
 
 ## Archetype
 

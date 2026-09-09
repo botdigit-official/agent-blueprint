@@ -1,6 +1,6 @@
 # BotDigit Site — Example Walkthrough
 
-This directory demonstrates how Project Skills OS skills apply to a real project.
+This directory demonstrates how Agent Blueprint skills apply to a real project.
 
 BotDigit (botdigit.com) is a SaaS website platform that lets users build, host, and manage websites with AI assistance, SEO automation, customizable templates, domain management, and an integrated CMS.
 
