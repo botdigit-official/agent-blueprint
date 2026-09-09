@@ -1,9 +1,11 @@
 {
   "name": "@botdigit/agent-blueprint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The universal blueprint and skill standard for AI coding agents — teaching agents how to think, audit, architect, and properly document any software project.",
   "main": "bin/cli.js",
-  "bin": "./bin/cli.js",
+  "bin": {
+    "agent-blueprint": "bin/cli.js"
+  },
   "files": [
     "bin",
     "skills",
