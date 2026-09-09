@@ -139,8 +139,23 @@ Format is based on [Keep a Changelog](https://keepachangelog.com/).
     console.log('✅ Initialized CHANGELOG.md audit trail');
   }
 
-  // 7. Scaffold docs/ structure according to Tier
+  // 7. Scaffold Enterprise Controlled Source of Truth (00-18) in docs/
   const docsDir = path.join(fullTarget, 'docs');
+  fs.mkdirSync(docsDir, { recursive: true });
+
+  const srcControlledDir = path.join(CACHE_DIR, 'templates', 'controlled-source-of-truth');
+  if (fs.existsSync(srcControlledDir)) {
+    const controlledTemplates = fs.readdirSync(srcControlledDir);
+    for (const t of controlledTemplates) {
+      const destFile = path.join(docsDir, t);
+      if (!fs.existsSync(destFile)) {
+        fs.copyFileSync(path.join(srcControlledDir, t), destFile);
+      }
+    }
+    console.log('✅ Scaffolded 19-Document Controlled Source of Truth in docs/ (00_MASTER_INDEX to 18_FEATURE_CHECKLIST)');
+  }
+
+  // 8. Scaffold category subdirectories in docs/
   fs.mkdirSync(path.join(docsDir, '00-project'), { recursive: true });
   fs.mkdirSync(path.join(docsDir, '01-business'), { recursive: true });
   fs.mkdirSync(path.join(docsDir, '02-architecture'), { recursive: true });
@@ -148,8 +163,8 @@ Format is based on [Keep a Changelog](https://keepachangelog.com/).
   fs.mkdirSync(path.join(docsDir, '04-security'), { recursive: true });
   fs.mkdirSync(path.join(docsDir, '05-testing'), { recursive: true });
   fs.mkdirSync(path.join(docsDir, '08-operations'), { recursive: true });
+  fs.mkdirSync(path.join(docsDir, '09-audits'), { recursive: true });
 
-  console.log('✅ Scaffolded living documentation structure in docs/\n');
   console.log('🎉 Setup complete! All AI tools (Antigravity, Claude Code, Cursor, Windsurf) are now aligned.');
   console.log("👉 Tell your agent: 'Read AGENTS.md and start discovery'.\n");
 }
