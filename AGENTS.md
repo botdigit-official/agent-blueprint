@@ -147,35 +147,52 @@ The orchestrator decides. Use judgment. When in doubt, err toward more documenta
 
 ## What Every Agent Must Leave Behind
 
-## Mandatory Execution Protocol: Task List, Docs Sync & Changelog
- 
- Whenever an agent works on a project:
- 
- 1. **Maintain an Active Task List (`TASK.md`)**:
-    - Before writing code, break the task into discrete checklist steps (`- [ ] Step`).
-    - Check them off (`- [x] Step`) as you progress.
- 2. **Sync Living Documentation (`docs/`)**:
-    - If you add or modify an API endpoint $\to$ update `docs/03-engineering/api.md`
-    - If you add or modify a database table or migration $\to$ update `docs/03-engineering/database.md`
-    - If you change a business rule or pricing tier $\to$ update `docs/01-business/business-model.md`
-    - If you make a significant architecture decision $\to$ write an ADR in `docs/02-architecture/decisions/`
- 3. **Record Every Change in `CHANGELOG.md`**:
-    - Append an entry to `CHANGELOG.md` under `## [Unreleased]` describing:
-      - What was added, changed, fixed, or removed
-      - Exact file paths touched
-      - Reason for change
- 4. **Run Verification**:
-    - Run the automated test suite (`cargo test`, `npm test`, etc.) and ensure 0 failures.
- 
- ---
- 
- ## What Every Agent Must Verify Before Exit
- 
- - [ ] `TASK.md` is fully updated with completed items checked off
- - [ ] `CHANGELOG.md` has an explicit audit trail entry for this session
- - [ ] Living documentation in `docs/` reflects the new reality
- - [ ] All automated tests pass with 0 failures
- - [ ] New dependencies are justified in an ADR or comment
+## Mandatory Execution Protocol: The 5-Phase Delivery Loop & Context Engineering
+
+Whenever an agent works on a project, it MUST execute through the **5-Phase Delivery Loop** (`skills/13-phase-loop-delivery`):
+
+1. **Phase 1 — Discuss (Clarify & Lock Decisions)**:
+   - Clarify underspecified requirements before writing plans or touching files.
+   - Record architectural trade-offs in `TASK.md` or ADRs.
+
+2. **Phase 2 — Plan (Wave Decomposition & Task Tracker)**:
+   - Prevent **context rot** (`skills/12-context-engineering`) by decomposing complex features into sequential, bounded **Task Waves**:
+     - *Wave 1:* Types, Models, and Schema contracts (zero side-effects)
+     - *Wave 2:* Business logic services
+     - *Wave 3:* Endpoints, UI views, and adapters
+     - *Wave 4:* Verification & Docs Sync
+   - Populate `TASK.md` with explicit checkbox items (`- [ ] Step`).
+
+3. **Phase 3 — Execute (Subagent & Wave Isolation)**:
+   - Implement wave-by-wave within strict file boundaries.
+   - For heavy research or large audits, delegate to fresh-context subagents to prevent token fatigue and amnesia.
+   - Check off steps (`- [x] Step`) as you progress.
+
+4. **Phase 4 — Verify (Zero False Accomplishment)**:
+   - Run the automated test suite (`cargo test`, `npm test`, `pytest`) and typecheckers.
+   - Never declare done without empirical terminal output proving 0 failures and 0 regressions.
+   - If an unexpected regression occurs, apply the Forensics Protocol (`skills/14-forensics-and-debugging`).
+
+5. **Phase 5 — Ship (Docs Sync & Atomic Commit)**:
+   - **Sync Living Documentation (`docs/`)**:
+     - If you add or modify an API endpoint $\to$ update `docs/03-engineering/api.md`
+     - If you add or modify a database table or migration $\to$ update `docs/03-engineering/database.md`
+     - If you change a business rule $\to$ update `docs/01-business/business-model.md`
+     - If you make a significant architecture decision $\to$ write an ADR in `docs/02-architecture/decisions/`
+   - **Record Every Change in `CHANGELOG.md`**:
+     - Append an entry under `## [Unreleased]` describing files touched and user rationale.
+   - **Atomic Git Commit**: Follow Conventional Commits format on a semantic branch (`feat/...`, `fix/...`, `chore/...`).
+
+---
+
+## What Every Agent Must Verify Before Exit
+
+- [ ] `TASK.md` is fully updated with completed items checked off
+- [ ] Context remained disciplined (no sprawling logs or hallucinations)
+- [ ] Empirical test execution logs prove 0 failures
+- [ ] Living documentation in `docs/` reflects the new reality
+- [ ] `CHANGELOG.md` has an explicit audit trail entry under `## [Unreleased]`
+- [ ] New dependencies are justified in an ADR or comment
 
 ---
 

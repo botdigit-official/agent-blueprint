@@ -197,8 +197,17 @@ Activate if code changes are planned:
 Activate if performance is a concern or changes affect performance:
   └── 09-performance
 
-Activate if comprehensive review is needed:
-  └── 10-audit   (runs 06 + 07 + 04 + 03 in sequence)
+Activate if enterprise rigor & strict specification needed:
+  └── 11-controlled-source-of-truth
+
+Activate for all multi-step tasks to prevent context rot:
+  └── 12-context-engineering
+
+Activate for feature execution & milestone delivery:
+  └── 13-phase-loop-delivery (Discuss → Plan → Execute → Verify → Ship)
+
+Activate when debugging unexpected failures or regressions:
+  └── 14-forensics-and-debugging
 
 Activate detected stack skill:
   └── stacks/[detected-language]/
@@ -218,12 +227,13 @@ Based on the task type, select the appropriate workflow:
 
 | Task | Workflow |
 |---|---|
-| New project from scratch | Greenfield workflow (`workflow.md`) |
-| Add feature to existing project | Improve workflow |
-| Fix bug in existing project | Improve workflow + testing |
+| New project from scratch | Greenfield workflow (`workflow.md`) + `13-phase-loop-delivery` |
+| Add feature to existing project | Improve workflow + `12-context-engineering` + `13-phase-loop-delivery` |
+| Fix bug or regression | Forensics workflow (`14-forensics-and-debugging`) + `08-testing` |
+| Enterprise documentation / spec | Controlled Source of Truth (`11-controlled-source-of-truth`) |
 | Audit existing project | Audit workflow (`10-audit`) |
-| Refactor existing code | Reconcile workflow (Partial) |
-| Stabilize broken project | Stabilize workflow (Broken) |
+| Refactor existing code | Reconcile workflow (Partial) + `12-context-engineering` |
+| Stabilize broken project | Stabilize workflow (Broken) + `14-forensics-and-debugging` |
 | Document existing project | Documentation workflow (`05-documentation`) |
 | Security review | Security workflow (`07-security`) |
 

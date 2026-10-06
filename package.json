@@ -1,7 +1,7 @@
 {
   "name": "@botdigit/agent-blueprint",
-  "version": "1.0.1",
-  "description": "The universal blueprint and skill standard for AI coding agents — teaching agents how to think, audit, architect, and properly document any software project.",
+  "version": "1.1.0",
+  "description": "The universal blueprint, context-engineering standard, and 5-phase delivery engine for AI coding agents — eliminating context rot and hallucination across any software project.",
   "main": "bin/cli.js",
   "bin": {
     "agent-blueprint": "bin/cli.js"
@@ -12,6 +12,7 @@
     "stacks",
     "frameworks",
     "templates",
+    "slash-commands",
     "AGENTS.md",
     "README.md",
     "LICENSE",
@@ -20,7 +21,7 @@
     "PROMPT.md"
   ],
   "scripts": {
-    "test": "node bin/cli.js status"
+    "test": "node bin/cli.js help"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,10 @@
   "keywords": [
     "ai-agents",
     "coding-agents",
+    "context-engineering",
+    "gsd",
+    "spec-driven-development",
+    "subagents",
     "agentic-workflows",
     "cursor",
     "claude-code",

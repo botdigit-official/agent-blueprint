@@ -29,7 +29,10 @@ curl -fsSL https://raw.githubusercontent.com/botdigit-official/agent-blueprint/m
 
 ### Option B: Via npx / Node
 ```bash
-npx agent-blueprint init
+npx @botdigit/agent-blueprint init       # Initialize standards & skills in current repo
+npx @botdigit/agent-blueprint plan       # Generate a wave-based plan in TASK.md
+npx @botdigit/agent-blueprint verify     # Run automated test suites & doc sync check
+npx @botdigit/agent-blueprint doctor     # Check repository compliance score
 ```
 
 ### Option C: Git Clone
@@ -41,10 +44,21 @@ git clone --depth 1 https://github.com/botdigit-official/agent-blueprint.git ~/.
 ### 🤖 Multi-Agent Compatibility Out of the Box
 | AI Tool | Configuration File Generated | Workflow Activated |
 |---|---|---|
-| **Google Antigravity** | `AGENTS.md` + `.agents/skills/` | Full modular skill hierarchy |
+| **Google Antigravity** | `AGENTS.md` + `.agents/skills/` | Full modular skill hierarchy & subagent waves |
 | **Claude Code** | `CLAUDE.md` | Context & architecture guardrails |
 | **Cursor AI** | `.cursorrules` | Architectural & testing rules |
 | **Windsurf / Cline / Aider** | `AGENTS.md` | Autonomous discovery & audit |
+
+### ⚡ Slash Commands & Workflows
+| Command | Phase / Skill | Purpose |
+|---|---|---|
+| `/blueprint:discuss` | Phase 1 (`13-phase-loop`) | Resolve ambiguities & lock architecture decisions |
+| `/blueprint:plan` | Phase 2 (`12-context-eng`) | Decompose feature into atomic task waves in `TASK.md` |
+| `/blueprint:execute` | Phase 3 (`12-context-eng`) | Execute active wave within bounded subagent context |
+| `/blueprint:verify` | Phase 4 (`08-testing`) | Execute automated test suite & verify 0 regressions |
+| `/blueprint:ship` | Phase 5 (`13-phase-loop`) | Conventional atomic commit, sync `docs/`, update `CHANGELOG.md` |
+| `/blueprint:forensics` | Diagnostic (`14-forensics`) | Minimal reproducer & root-cause verification |
+| `/blueprint:doctor` | Compliance (`10-audit`) | Project conformance audit & score |
 
 ---
 
@@ -122,7 +136,11 @@ skills/
 ├── 07-security/               # Security review, secrets, CSRF, auth audit
 ├── 08-testing/                # Test strategy, coverage, regression suite
 ├── 09-performance/            # Latency, queries, throughput, bottlenecks
-└── 10-audit/                  # Combined forensic audit workflow
+├── 10-audit/                  # Combined holistic audit workflow
+├── 11-controlled-source-of-truth/ # 19-Document enterprise specification standard
+├── 12-context-engineering/    # Context rot prevention & subagent wave execution
+├── 13-phase-loop-delivery/    # 5-Phase GSD delivery loop (Discuss-Plan-Execute-Verify-Ship)
+└── 14-forensics-and-debugging/# Root-cause analysis, state capture & regression shields
 ```
 
 Stack & framework adapters activate automatically based on detected project manifests (`Cargo.toml`, `package.json`, `pyproject.toml`, `go.mod`, `pom.xml`, etc.):

@@ -36,3 +36,4 @@ logs/
 tmp/
 temp/
 .cache/
+graphify-out/
