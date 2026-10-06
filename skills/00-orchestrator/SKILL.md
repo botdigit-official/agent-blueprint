@@ -209,6 +209,9 @@ Activate for feature execution & milestone delivery:
 Activate when debugging unexpected failures or regressions:
   └── 14-forensics-and-debugging
 
+Activate for autonomous execution & anti-overengineering reviews:
+  └── 15-autonomous-loop-and-simplification
+
 Activate detected stack skill:
   └── stacks/[detected-language]/
 
@@ -229,6 +232,8 @@ Based on the task type, select the appropriate workflow:
 |---|---|
 | New project from scratch | Greenfield workflow (`workflow.md`) + `13-phase-loop-delivery` |
 | Add feature to existing project | Improve workflow + `12-context-engineering` + `13-phase-loop-delivery` |
+| Autonomous feature execution | Autonomous loop (`15-autonomous-loop-and-simplification`) |
+| Pre-merge code simplification | Anti-overengineering review (`15-autonomous-loop-and-simplification`) |
 | Fix bug or regression | Forensics workflow (`14-forensics-and-debugging`) + `08-testing` |
 | Enterprise documentation / spec | Controlled Source of Truth (`11-controlled-source-of-truth`) |
 | Audit existing project | Audit workflow (`10-audit`) |

@@ -11,6 +11,9 @@ Standard slash command prompts compatible with **Antigravity IDE**, **Claude Cod
 | `/blueprint:discuss` | `13-phase-loop-delivery` | Interview user, surface architectural edge-cases, lock decisions before planning |
 | `/blueprint:plan` | `12-context-engineering` + `13-phase-loop-delivery` | Research codebase, generate wave-based task breakdown in `TASK.md` |
 | `/blueprint:execute` | `12-context-engineering` | Execute active wave within strict file boundaries and subagent isolation |
+| `/blueprint:loop` | `15-autonomous-loop` | Autonomous Ralph-loop execution of tasks with validation commands |
+| `/blueprint:review` | `15-autonomous-loop` | 5-agent parallel review (quality, implementation, testing, simplification, docs) |
+| `/blueprint:simplify` | `15-autonomous-loop` | Ruthless anti-overengineering audit (YAGNI, strip speculative abstractions) |
 | `/blueprint:verify` | `08-testing` + `13-phase-loop-delivery` | Run automated test suite, build checks, and verify zero false accomplishments |
 | `/blueprint:ship` | `13-phase-loop-delivery` | Create conventional git commit, sync living docs (`docs/`), update `CHANGELOG.md` |
 | `/blueprint:forensics` | `14-forensics-and-debugging` | Create minimal reproduction script, trace git diffs, prove root-cause |
@@ -76,4 +79,38 @@ Do not guess or apply random trial-and-error fixes:
 2. Inspect git diffs (git log -S) and recent commits to identify regression origins.
 3. Formulate a testable root-cause hypothesis and verify it empirically.
 4. Apply surgical fix, verify reproduction test passes, and prove zero regressions.
+```
+
+## 7. `/blueprint:loop`
+```markdown
+Read skills/15-autonomous-loop-and-simplification/SKILL.md.
+Execute the plan in TASK.md iteratively using the Ralph Loop:
+1. Find the next uncompleted task (- [ ]).
+2. Execute with minimal scoped context (only files touched).
+3. Run the project's validation commands (e.g. tests, linters).
+4. Upon passing, check off the item (- [x]) and commit changes atomically.
+5. Repeat for the next task until all tasks complete.
+```
+
+## 8. `/blueprint:review`
+```markdown
+Read skills/15-autonomous-loop-and-simplification/SKILL.md.
+Execute the 5-agent parallel code review on current branch diff (git diff main...HEAD):
+1. [quality]: Check memory leaks, race conditions, auth bypasses, unhandled errors.
+2. [implementation]: Verify all acceptance criteria are met (no scope creep).
+3. [testing]: Verify unit test coverage and edge cases.
+4. [simplification]: Ruthlessly audit against over-engineering and premature abstraction.
+5. [documentation]: Confirm docs/ and CHANGELOG.md sync.
+Synthesize findings into an actionable fix list.
+```
+
+## 9. `/blueprint:simplify`
+```markdown
+Read skills/15-autonomous-loop-and-simplification/SKILL.md.
+Conduct a strict Anti-Overengineering Review on recent changes:
+1. Identify any single-implementation interfaces, bloated factories, or unused generics.
+2. Apply YAGNI: Strip speculative extensibility hooks and dead code.
+3. Eliminate unnecessary external dependencies where standard library suffices.
+4. Simplify complex metaprogramming into readable, direct sequential logic.
+Goal: Reduce line count and cognitive complexity without altering functionality.
 ```
